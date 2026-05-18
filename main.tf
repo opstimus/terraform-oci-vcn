@@ -48,7 +48,7 @@ resource "oci_core_public_ip" "main" {
 resource "oci_core_nat_gateway" "private" {
   compartment_id = var.compartment_id
   vcn_id         = oci_core_vcn.main.id
-  block_traffic  = true
+  block_traffic  = false
   display_name   = "${var.project}-${var.environment}-nat-gateway"
   public_ip_id   = oci_core_public_ip.main.id
   freeform_tags  = var.tags
